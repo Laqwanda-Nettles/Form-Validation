@@ -13,26 +13,56 @@
       </p>
     </header>
     <main>
-      <form>
+      <form id="signup">
+        <!--added an id attribute to form so it can be selected in javascripts and css-->
         <label>
           Username:
-          <input type="text" name="username" />
+          <input
+            aria-label="Enter your username."
+            type="text"
+            name="username"
+            required
+            minlength="5"
+          />
         </label>
-
+        <!--
+            Bypassed the label's for attribute by placing the input inside.
+            Added required attribute so the input field cannot be left blank.
+            Minlength prevents characters from being under the required amount.
+            A tool tip will popup if requirements aren't met.
+        -->
         <label>
           Email:
-          <input type="text" name="email" id="" />
+          <input
+            aria-label="Enter a valid email address."
+            type="text"
+            name="email"
+            required
+          />
         </label>
-
+        <!--Changed email type from email to text because leaving it as email would allow invalid emails to submitted as long as the have @ symbol. For example, 1@1 would be considered valid. Also, it would be able to bypass altogether using devtools. Using javascript instead would be a better option to prevent this.-->
         <label>
           Password:
-          <input type="password" name="password" id="" />
+          <input
+            aria-label="Enter password."
+            type="password"
+            name="password"
+            minlength="8"
+          />
         </label>
         <label>
           Confirm Password:
-          <input type="password" name="password2" id="" />
+          <input
+            aria-label="Confirm your password."
+            type="password"
+            name="password2"
+            minlength="8"
+          />
         </label>
+        <!--Input type password allows users to secuerly enter their passwords. Added minlength to password same as username.-->
         <button>Submit</button>
+        <!--button allows form to be submitted.-->
+        <!--Added aria labels for accessibility.-->
       </form>
     </main>
     <script src="script.js"></script>
